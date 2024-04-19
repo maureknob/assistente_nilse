@@ -1,8 +1,6 @@
 from openai import OpenAI
 import tiktoken
 from dotenv import load_dotenv
-from PIL import Image
-from io import BytesIO
 import os
 
 load_dotenv()
@@ -63,24 +61,3 @@ response = cliente.audio.speech.create(
 )
 
 response.stream_to_file("resumo-do_dia.opus")
-
-
-
-
-# image= Image.open("./tami.png")
-# width, height = 256, 256
-# image = image.resize((width, height))
-
-# byte_stream = BytesIO()
-# image.save(byte_stream, format='PNG')
-# byte_array = byte_stream.getvalue()
-
-# resposta_imagem = cliente.images.generate(
-#     model="dall-e-3",
-#     prompt="emergindo do esconderijo da escuridão, o terror se desenrola diante de vocês. É um dragão. Sua aparência é tão apavorante quanto a criatura mais horrenda dos seus pesadelos mais escuros. Seus olhos, faíscas ferozes, são duas estrelas cadentes amaldiçoadas, destilando desespero e destruição. Suas escamas, grandes placas de metal enegrecido, estão dispostas sobre seu corpo com uma precisão que desafia a própria natureza, formando uma armadura impenetrável. O monstro se inclina, e vocês veem suas asas se abrirem, imensas. São tão vastas que poderiam engolir a lua. E quando bate suas asas, vocês são atingidos por um vento que é mais escaldante do que qualquer aridez encontrada neste deserto. Seus chifres torcidos como ramos antigos são cobertos de cicatrizes de batalhas incontáveis. De sua boca, goteja um líquido viscoso, como lava a escorrer de um vulcão em erupção, derretendo a areia abaixo de suas mandíbulas poderosas que são repletas de presas afiadas como espadas. O dragão rosna, uma cacofonia perturbadora que estremece o chão e arrepia seus corações valentes. É um grito que não promete nada além de morte. Vocês, aventureiros, estão de frente para esse ser apocalíptico. Seu destino, o que quer que seja, aguarda nas faíscas ardentes dos olhos da fera.",
-#     n=1,
-#     size="1024x1024",
-#     quality="standard",
-# )
-
-# print(resposta_imagem.data[0].url)
